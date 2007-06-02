@@ -10,10 +10,9 @@ Source0:	http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{versi
 URL:		http://trac.emma-soft.com/epdfview/
 BuildRequires:	cups-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.6.0
+BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
 BuildRequires:	poppler-glib-devel > 0.5.2
-#Requires:
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

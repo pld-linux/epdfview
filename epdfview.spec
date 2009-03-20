@@ -7,11 +7,13 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	1919bb19c16ef0a97d48b0a8303d3c7b
+Patch0:		%{name}-locale.patch
 URL:		http://trac.emma-soft.com/epdfview/
 BuildRequires:	cups-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
+BuildRequires:	pkgconfig
 BuildRequires:	poppler-glib-devel > 0.5.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,6 +33,10 @@ stylu Evince, ale bez wykorzystywania bibliotek GNOME.
 
 %prep
 %setup -q
+%patch0 -p1
+# pt_PT locale quick fix
+%{__mv} po/pt_PT.gmo po/pt.gmo
+%{__mv} po/pt_PT.po po/pt.po
 
 %build
 %configure

@@ -1,12 +1,12 @@
 Summary:	A lightweight PDF viewer for GNOME
 Summary(pl.UTF-8):	Lekka przeglądarka PDF-ów dla GNOME
 Name:		epdfview
-Version:	0.1.6
+Version:	0.1.7
 Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	cce9edb41b4a8308e0ef0eea24b5a1ab
+# Source0-md5:	1919bb19c16ef0a97d48b0a8303d3c7b
 URL:		http://trac.emma-soft.com/epdfview/
 BuildRequires:	cups-devel
 BuildRequires:	gettext-devel

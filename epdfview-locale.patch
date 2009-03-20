@@ -1,0 +1,60 @@
+diff -burNp epdfview-0.1.7/intl/config.charset epdfview-0.1.7-dud/intl/config.charset
+--- epdfview-0.1.7/intl/config.charset	2009-02-28 18:39:00.000000000 +0100
++++ epdfview-0.1.7-dud/intl/config.charset	2009-03-20 22:23:07.000000000 +0100
+@@ -133,7 +133,7 @@ case "$os" in
+ 	         es_HN es_MX es_PA es_PE es_PY es_SV es_US es_UY es_VE et \
+ 	         et_EE eu eu_ES fi fi_FI fo fo_FO fr fr_BE fr_CA fr_CH fr_FR \
+ 	         fr_LU ga ga_IE gl gl_ES id id_ID in in_ID is is_IS it it_CH \
+-	         it_IT kl kl_GL nl nl_BE nl_NL no no_NO pt pt_BR pt_PT sv \
++	         it_IT kl kl_GL nl nl_BE nl_NL no no_NO pt pt_BR sv \
+ 	         sv_FI sv_SE; do
+ 	  echo "$l ISO-8859-1"
+ 	  echo "$l.iso-8859-1 ISO-8859-1"
+@@ -358,7 +358,7 @@ case "$os" in
+ 	done
+ 	for l in da_DK de_AT de_CH de_DE en_AU en_CA en_GB en_US es_ES \
+ 	         fi_FI fr_BE fr_CA fr_CH fr_FR is_IS it_CH it_IT la_LN \
+-	         lt_LN nl_BE nl_NL no_NO pt_PT sv_SE; do
++	         lt_LN nl_BE nl_NL no_NO pt sv_SE; do
+ 	  echo "$l.ISO_8859-1 ISO-8859-1"
+ 	  echo "$l.DIS_8859-15 ISO-8859-15"
+ 	done
+@@ -406,7 +406,7 @@ case "$os" in
+ 	done
+ 	for l in da_DK de_AT de_CH de_DE en_AU en_CA en_GB en_US es_ES \
+ 	         fi_FI fr_BE fr_CA fr_CH fr_FR is_IS it_CH it_IT nl_BE \
+-	         nl_NL no_NO pt_PT sv_SE; do
++	         nl_NL no_NO pt sv_SE; do
+ 	  echo "$l ISO-8859-1"
+ 	  echo "$l.ISO8859-1 ISO-8859-1"
+ 	  echo "$l.ISO8859-15 ISO-8859-15"
+@@ -557,9 +557,8 @@ case "$os" in
+ 	echo "nn_NO CP865" # not CP850 ??
+ 	echo "no CP865"    # not CP850 ??
+ 	echo "no_NO CP865" # not CP850 ??
+-	echo "pt CP850"
+ 	echo "pt_BR CP850"
+-	echo "pt_PT CP850"
++	echo "pt CP850"
+ 	echo "sv CP850"
+ 	echo "sv_SE CP850"
+ 	# ISO-8859-2 languages
+diff -burNp epdfview-0.1.7/intl/localename.c epdfview-0.1.7-dud/intl/localename.c
+--- epdfview-0.1.7/intl/localename.c	2009-02-28 18:39:00.000000000 +0100
++++ epdfview-0.1.7-dud/intl/localename.c	2009-03-20 22:19:56.000000000 +0100
+@@ -1347,7 +1347,7 @@ _nl_locale_name_default (void)
+       case LANG_PORTUGUESE:
+ 	switch (sub)
+ 	  {
+-	  case SUBLANG_PORTUGUESE: return "pt_PT";
++	  case SUBLANG_PORTUGUESE: return "pt";
+ 	  /* Hmm. SUBLANG_PORTUGUESE_BRAZILIAN == SUBLANG_DEFAULT.
+ 	     Same phenomenon as SUBLANG_ENGLISH_US == SUBLANG_DEFAULT. */
+ 	  case SUBLANG_PORTUGUESE_BRAZILIAN: return "pt_BR";
+diff -burNp epdfview-0.1.7/po/LINGUAS epdfview-0.1.7-dud/po/LINGUAS
+--- epdfview-0.1.7/po/LINGUAS	2009-02-28 20:54:49.000000000 +0100
++++ epdfview-0.1.7-dud/po/LINGUAS	2009-03-20 22:18:31.000000000 +0100
+@@ -1,2 +1,2 @@
+ # Set of available languages.
+-ca cs de el es eu fr ja it pl pt_BR pt_PT ru sv vi zh_CN zh_TW
++ca cs de el es eu fr ja it pl pt_BR pt ru sv vi zh_CN zh_TW

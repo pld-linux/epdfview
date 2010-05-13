@@ -1,0 +1,9 @@
+--- epdfview-0.1.7/data/epdfview.desktop~	2009-02-28 18:39:00.000000000 +0100
++++ epdfview-0.1.7/data/epdfview.desktop	2010-05-13 13:59:44.367375465 +0200
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Categories=Viewer;Office;GTK;
++Categories=GTK;Graphics;Viewer;
+ Comment=Lightweight PDF document viewer
+ Comment[ca]=Visor de documents PDF lleuger
+ Comment[es]=Visor de documentos PDF ligero

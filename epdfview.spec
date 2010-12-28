@@ -2,14 +2,17 @@ Summary:	A lightweight PDF viewer for GNOME
 Summary(pl.UTF-8):	Lekka przeglądarka PDF-ów dla GNOME
 Name:		epdfview
 Version:	0.1.7
-Release:	4
-License:	GPL v2
+Release:	5
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	1919bb19c16ef0a97d48b0a8303d3c7b
 Patch0:		%{name}-locale.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-poppler-0.16.patch
 URL:		http://trac.emma-soft.com/epdfview/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	cups-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.6.0
@@ -36,11 +39,16 @@ stylu Evince, ale bez wykorzystywania bibliotek GNOME.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 # pt_PT locale quick fix
 %{__mv} po/pt_PT.gmo po/pt.gmo
 %{__mv} po/pt_PT.po po/pt.po
 
 %build
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 

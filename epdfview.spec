@@ -2,7 +2,7 @@ Summary:	A lightweight PDF viewer for GNOME
 Summary(pl.UTF-8):	Lekka przeglądarka PDF-ów dla GNOME
 Name:		epdfview
 Version:	0.1.8
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
@@ -18,6 +18,7 @@ BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
 BuildRequires:	pkgconfig
 BuildRequires:	poppler-glib-devel > 0.5.2
+Requires:	desktop-file-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -57,19 +58,26 @@ stylu Evince, ale bez wykorzystywania bibliotek GNOME.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+ln $RPM_BUILD_ROOT%{_datadir}/epdfview/pixmaps/icon_epdfview-48.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+%{__sed} -i -e 's,Icon=icon_epdfview-48,Icon=%{name},' $RPM_BUILD_ROOT%{_desktopdir}/epdfview.desktop
 
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%update_desktop_database
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README THANKS
 %attr(755,root,root) %{_bindir}/epdfview
-%{_desktopdir}/epdfview.desktop
-%{_datadir}/epdfview
 %{_mandir}/man1/epdfview.1*
+%{_datadir}/epdfview
+%{_desktopdir}/epdfview.desktop
+%{_pixmapsdir}/epdfview.png

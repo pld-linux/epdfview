@@ -13,7 +13,7 @@ URL:		http://trac.emma-soft.com/epdfview/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	cups-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
 BuildRequires:	pkgconfig
